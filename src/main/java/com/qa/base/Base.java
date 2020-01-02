@@ -68,6 +68,9 @@ public class Base {
 	@BeforeClass
 	public void launchApp() throws IOException, InterruptedException {
 
+		startEmulator();
+		
+		
 		startAppiumServer();
 		Thread.sleep(5000);
 		FileInputStream src1 = new FileInputStream(
@@ -76,10 +79,11 @@ public class Base {
 		prop.load(src1);
 
 		File src = new File(".\\src\\App\\" + prop.getProperty("appName"));
-        String device = System.getProperty("device");
+       // String device = System.getProperty("device");
+        String device = prop.getProperty("device");
 		System.out.println("project path  "+System.getProperty("user.dir"));
 		DesiredCapabilities caps = new DesiredCapabilities();
-
+		caps.setCapability("automationName", "UiAutomator1");
 		if (device.contains("Emulator")) {
 
 			caps.setCapability("deviceName", device);
@@ -98,7 +102,6 @@ public class Base {
 	public void stopAppiumServer(){
 		driver.quit();
 		
-		server.stop();
 	}
 
 }

@@ -6,8 +6,9 @@
       <class name="com.qa.testcase.APIDemoTest">
         <methods>
           <include name="swippingWatch"/>
-          <include name="stopAppiumServer"/>
+          <include name="scrollOnViewPage"/>
           <include name="launchApp"/>
+          <include name="passTheInputValue"/>
           <include name="dragAndDrop"/>
         </methods>
       </class> <!-- com.qa.testcase.APIDemoTest -->
